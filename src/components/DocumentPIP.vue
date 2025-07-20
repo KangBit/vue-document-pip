@@ -2,20 +2,6 @@
 import { ref, watch, onBeforeUnmount, computed } from "vue";
 import copyStyles from "@/utils/copyStyles";
 
-// Global Types
-declare global {
-  interface Window {
-    documentPictureInPicture: {
-      requestWindow: (options: {
-        width: number;
-        height: number;
-        disallowReturnToOpener?: boolean;
-        preferInitialWindowPlacement?: boolean;
-      }) => Promise<Window>;
-    };
-  }
-}
-
 // Types
 type PIPWindowSize = { width: number; height: number };
 type Mode = "clone" | "transfer";
