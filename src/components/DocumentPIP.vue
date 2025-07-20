@@ -22,6 +22,7 @@ type Mode = "clone" | "transfer";
 type Props = {
   size?: Partial<PIPWindowSize>;
   mode?: Mode;
+  copyAllStyles?: boolean;
   isPipOpen: boolean;
 };
 type Emits = {
@@ -32,7 +33,10 @@ type Emits = {
 const isPIPSupported = "documentPictureInPicture" in window;
 
 // Props & Emits
-const props = withDefaults(defineProps<Props>(), { mode: "transfer" });
+const props = withDefaults(defineProps<Props>(), {
+  mode: "transfer",
+  copyAllStyles: true,
+});
 const emit = defineEmits<Emits>();
 
 // Refs
@@ -63,10 +67,13 @@ const openPIPWindow = async () => {
     height,
   });
 
+  if (props.copyAllStyles) {
+    copyStyles(pip);
+  }
+
   pip.document.body.innerHTML = '<div id="pip-root"></div>';
   pip.addEventListener("pagehide", onClosePIPWindow, { once: true });
 
-  copyStyles(pip);
   pipWindow.value = pip;
 };
 
