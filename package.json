@@ -1,15 +1,31 @@
 {
-  "name": "vue-document-pip",
+  "version": "0.0.1",
+  "author": "KangBit",
+  "license": "MIT",
   "private": true,
-  "version": "0.0.0",
+  "name": "vue-pip",
+  "description": "This is a simple utility package for document picture in picture",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KangBit/vue-document-pip"
+  },
+  "keywords": [
+    "pip",
+    "document pip",
+    "picture in picture",
+    "document picture in picture",
+    "vue",
+    "vue3",
+    "vue document pip"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "vue": "^3.5.17"
+  "peerDependencies": {
+    "vue": "^3.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.0.15",
@@ -17,6 +33,20 @@
     "@vue/tsconfig": "^0.7.0",
     "typescript": "~5.8.3",
     "vite": "^7.0.4",
-    "vue-tsc": "^2.2.12"
-  }
+    "vite-plugin-dts": "^4.5.4",
+    "vue-tsc": "^2.2.12",
+    "vue": "^3.5.17"
+  },
+  "main": "./dist/vue-pip.umd.cjs",
+  "module": "./dist/vue-pip.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-pip.js",
+      "require": "./dist/vue-pip.umd.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ]
 }
