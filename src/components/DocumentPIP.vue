@@ -58,13 +58,14 @@ const openPIPWindow = async () => {
   if (props.copyAllStyles) {
     copyStyles(pip);
   }
-
-  // Add CDN scripts to PIP window
   if (props.cdnScripts && props.cdnScripts.length > 0) {
     await loadCDNScripts(pip, props.cdnScripts);
   }
 
-  pip.document.body.innerHTML = '<div id="pip-root"></div>';
+  const root = pip.document.createElement("div");
+  root.id = "pip-root";
+  pip.document.body.appendChild(root);
+
   pip.addEventListener("pagehide", onClosePIPWindow, { once: true });
 
   pipWindow.value = pip;
@@ -104,7 +105,7 @@ onBeforeUnmount(() => {
   <slot v-if="!pipRoot || mode === 'clone'"></slot>
 
   <Teleport v-if="pipRoot" :to="pipRoot">
-    <slot ref="pipContent"></slot>
+    <slot></slot>
   </Teleport>
 </template>
 
