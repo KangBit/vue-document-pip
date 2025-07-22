@@ -1,3 +1,7 @@
+/**
+ * Copy styles from the main window to the PIP window
+ * @param targetWindow - The window to copy styles to
+ */
 const copyStyles = (targetWindow: Window) => {
   [...document.styleSheets].forEach((styleSheet) => {
     try {

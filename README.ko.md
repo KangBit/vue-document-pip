@@ -12,7 +12,7 @@ npm install vue-pip
 
 ## 사용법
 
-### 예제
+### 기본 예제
 
 ```vue
 <template>
@@ -39,6 +39,39 @@ const handleClose = () => {
 </script>
 ```
 
+### Tailwind CSS 사용 예제
+
+```vue
+<template>
+  <DocumentPIP
+    :isPipOpen="isPipOpen"
+    :size="{ width: 500, height: 400 }"
+    mode="transfer"
+    :copyAllStyles="false"
+    :cdnScripts="cdnScripts"
+    @onClose="handleClose"
+  >
+    <div class="bg-blue-500 text-white p-4 rounded-lg">
+      <h2 class="text-xl font-bold">PIP에서 Tailwind CSS</h2>
+      <p class="mt-2">이 콘텐츠는 Tailwind CSS 클래스를 사용합니다!</p>
+    </div>
+  </DocumentPIP>
+</template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+import { DocumentPIP } from "vue-pip";
+
+const isPipOpen = ref(false);
+
+const cdnScripts = ["https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"];
+
+const handleClose = () => {
+  isPipOpen.value = false;
+};
+</script>
+```
+
 ## API 참조
 
 ### DocumentPIP Props
@@ -49,6 +82,7 @@ const handleClose = () => {
 | `size`          | `Partial<PIPWindowSize>` | -            | PIP 창의 크기                                                           |
 | `mode`          | `'clone' \| 'transfer'`  | `'transfer'` | 콘텐츠 표시 모드<br>`clone`: 원본 유지 + 복사<br>`transfer`: PIP로 이동 |
 | `copyAllStyles` | `boolean`                | `true`       | 모든 스타일을 PIP 창에 복사할지 여부                                    |
+| `cdnScripts`    | `string[]`               | -            | PIP 창에 로드할 CDN 스크립트 URL 배열                                   |
 
 ### DocumentPIP Events
 

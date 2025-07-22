@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onBeforeUnmount, computed } from "vue";
-import copyStyles from "@/utils/copyStyles";
+import copyStyles from "../utils/copyStyles";
+import { loadCDNScripts } from "../utils/loadCDNScripts";
 
 // Types
 type PIPWindowSize = { width: number; height: number };
@@ -10,6 +11,7 @@ type Props = {
   mode?: Mode;
   copyAllStyles?: boolean;
   isPipOpen: boolean;
+  cdnScripts?: string[];
 };
 type Emits = {
   (e: "onClose"): void;
@@ -55,6 +57,11 @@ const openPIPWindow = async () => {
 
   if (props.copyAllStyles) {
     copyStyles(pip);
+  }
+
+  // Add CDN scripts to PIP window
+  if (props.cdnScripts && props.cdnScripts.length > 0) {
+    await loadCDNScripts(pip, props.cdnScripts);
   }
 
   pip.document.body.innerHTML = '<div id="pip-root"></div>';

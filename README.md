@@ -12,15 +12,13 @@ npm install vue-pip
 
 ## Usage
 
-### Example
+### Basic Example
 
 ```vue
 <template>
   <DocumentPIP
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
-    mode="transfer"
-    :copyAllStyles="true"
     @onClose="handleClose"
   >
     <PIPContent />
@@ -39,6 +37,39 @@ const handleClose = () => {
 </script>
 ```
 
+### With Tailwind CSS
+
+```vue
+<template>
+  <DocumentPIP
+    mode="copy"
+    :isPipOpen="isPipOpen"
+    :size="{ width: 500, height: 400 }"
+    :copyAllStyles="false"
+    :cdnScripts="cdnScripts"
+    @onClose="handleClose"
+  >
+    <div class="bg-blue-500 text-white p-4 rounded-lg">
+      <h2 class="text-xl font-bold">Tailwind CSS in PIP</h2>
+      <p class="mt-2">This content uses Tailwind CSS classes!</p>
+    </div>
+  </DocumentPIP>
+</template>
+
+<script setup lang="ts">
+import { ref } from "vue";
+import { DocumentPIP } from "vue-pip";
+
+const isPipOpen = ref(false);
+
+const cdnScripts = ["https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"];
+
+const handleClose = () => {
+  isPipOpen.value = false;
+};
+</script>
+```
+
 ## API Reference
 
 ### DocumentPIP Props
@@ -49,6 +80,7 @@ const handleClose = () => {
 | `size`          | `Partial<PIPWindowSize>` | -            | Size of the PIP window                                                           |
 | `mode`          | `'clone' \| 'transfer'`  | `'transfer'` | Content display mode<br>`clone`: keep original + copy<br>`transfer`: move to PIP |
 | `copyAllStyles` | `boolean`                | `true`       | Whether to copy all styles to PIP window                                         |
+| `cdnScripts`    | `string[]`               | -            | Array of CDN script URLs to load in PIP window                                   |
 
 ### DocumentPIP Events
 
