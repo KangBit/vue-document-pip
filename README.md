@@ -26,10 +26,13 @@ npm install vue-pip
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { DocumentPIP, PIPContent } from "vue-pip";
 
 const isPipOpen = ref(false);
+
+const togglePip = () => {
+  isPipOpen.value = !isPipOpen.value;
+};
 
 const handleClose = () => {
   isPipOpen.value = false;
@@ -57,12 +60,15 @@ const handleClose = () => {
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
 import { DocumentPIP } from "vue-pip";
 
 const isPipOpen = ref(false);
 
 const cdnScripts = ["https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"];
+
+const togglePip = () => {
+  isPipOpen.value = !isPipOpen.value;
+};
 
 const handleClose = () => {
   isPipOpen.value = false;
