@@ -16,13 +16,13 @@ npm install vue-pip
 
 ```vue
 <template>
-  <DocumentPIP
+  <DocumentPip
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
     @onClose="handleClose"
   >
     <PIPContent />
-  </DocumentPIP>
+  </DocumentPip>
 </template>
 
 <script setup lang="ts">
@@ -41,7 +41,7 @@ const handleClose = () => {
 
 ```vue
 <template>
-  <DocumentPIP
+  <DocumentPip
     mode="copy"
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
@@ -53,7 +53,7 @@ const handleClose = () => {
       <h2 class="text-xl font-bold">Tailwind CSS in PIP</h2>
       <p class="mt-2">This content uses Tailwind CSS classes!</p>
     </div>
-  </DocumentPIP>
+  </DocumentPip>
 </template>
 
 <script setup lang="ts">

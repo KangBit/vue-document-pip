@@ -16,7 +16,7 @@ npm install vue-pip
 
 ```vue
 <template>
-  <DocumentPIP
+  <DocumentPip
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
     mode="transfer"
@@ -24,7 +24,7 @@ npm install vue-pip
     @onClose="handleClose"
   >
     <PIPContent />
-  </DocumentPIP>
+  </DocumentPip>
 </template>
 
 <script setup lang="ts">
@@ -43,7 +43,7 @@ const handleClose = () => {
 
 ```vue
 <template>
-  <DocumentPIP
+  <DocumentPip
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
     mode="transfer"
@@ -55,12 +55,12 @@ const handleClose = () => {
       <h2 class="text-xl font-bold">PIP에서 Tailwind CSS</h2>
       <p class="mt-2">이 콘텐츠는 Tailwind CSS 클래스를 사용합니다!</p>
     </div>
-  </DocumentPIP>
+  </DocumentPip>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { DocumentPIP } from "vue-pip";
+import { DocumentPip } from "vue-pip";
 
 const isPipOpen = ref(false);
 
