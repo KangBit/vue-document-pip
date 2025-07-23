@@ -12,6 +12,8 @@ type Props = {
   copyAllStyles?: boolean;
   isPipOpen: boolean;
   cdnScripts?: string[];
+  disallowReturnToOpener?: boolean; // '탭으로 돌아가기' 버튼 숨기기
+  preferInitialWindowPlacement?: boolean; // 항상 초기 위치에 설정 크기로 열림 (Chrome 130+)
 };
 type Emits = {
   (e: "onClose"): void;
@@ -24,6 +26,8 @@ const isPIPSupported = "documentPictureInPicture" in window;
 const props = withDefaults(defineProps<Props>(), {
   mode: "transfer",
   copyAllStyles: true,
+  disallowReturnToOpener: false,
+  preferInitialWindowPlacement: false,
 });
 const emit = defineEmits<Emits>();
 
@@ -53,6 +57,8 @@ const openPIPWindow = async () => {
   const pip = await window.documentPictureInPicture.requestWindow({
     width,
     height,
+    disallowReturnToOpener: props.disallowReturnToOpener,
+    preferInitialWindowPlacement: props.preferInitialWindowPlacement,
   });
 
   if (props.copyAllStyles) {

@@ -79,13 +79,15 @@ const handleClose = () => {
 
 ### DocumentPIP Props
 
-| Prop            | Type                     | 기본값       | 설명                                                                    |
-| --------------- | ------------------------ | ------------ | ----------------------------------------------------------------------- |
-| `isPipOpen`     | `boolean`                | -            | PIP 창이 열려있는지 제어                                                |
-| `size`          | `Partial<PIPWindowSize>` | -            | PIP 창의 크기                                                           |
-| `mode`          | `'clone' \| 'transfer'`  | `'transfer'` | 콘텐츠 표시 모드<br>`clone`: 원본 유지 + 복사<br>`transfer`: PIP로 이동 |
-| `copyAllStyles` | `boolean`                | `true`       | 모든 스타일을 PIP 창에 복사할지 여부                                    |
-| `cdnScripts`    | `string[]`               | -            | PIP 창에 로드할 CDN 스크립트 URL 배열                                   |
+| Prop                           | Type                     | 기본값       | 설명                                                                    |
+| ------------------------------ | ------------------------ | ------------ | ----------------------------------------------------------------------- |
+| `isPipOpen`                    | `boolean`                | -            | PIP 창이 열려있는지 제어                                                |
+| `size`                         | `Partial<PIPWindowSize>` | -            | PIP 창의 크기                                                           |
+| `mode`                         | `'clone' \| 'transfer'`  | `'transfer'` | 콘텐츠 표시 모드<br>`clone`: 원본 유지 + 복사<br>`transfer`: PIP로 이동 |
+| `copyAllStyles`                | `boolean`                | `true`       | 모든 스타일을 PIP 창에 복사할지 여부                                    |
+| `cdnScripts`                   | `string[]`               | -            | PIP 창에 로드할 CDN 스크립트 URL 배열                                   |
+| `disallowReturnToOpener`       | `boolean`                | `false`      | 원본 창으로 돌아가는 버튼 숨기기                                        |
+| `preferInitialWindowPlacement` | `boolean`                | `false`      | 항상 초기 위치에 설정 크기로 열림 (Chrome 130+)                         |
 
 ### DocumentPIP Events
 
