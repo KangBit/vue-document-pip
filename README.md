@@ -21,12 +21,12 @@ npm install vue-pip
     :size="{ width: 500, height: 400 }"
     @onClose="handleClose"
   >
-    <PIPContent />
+    <MyComponent />
   </DocumentPip>
 </template>
 
 <script setup lang="ts">
-import { DocumentPIP, PIPContent } from "vue-pip";
+import { DocumentPIP } from "vue-pip";
 
 const isPipOpen = ref(false);
 
@@ -52,10 +52,7 @@ const handleClose = () => {
     :cdnScripts="cdnScripts"
     @onClose="handleClose"
   >
-    <div class="bg-blue-500 text-white p-4 rounded-lg">
-      <h2 class="text-xl font-bold">Tailwind CSS in PIP</h2>
-      <p class="mt-2">This content uses Tailwind CSS classes!</p>
-    </div>
+    <MyComponent />
   </DocumentPip>
 </template>
 
