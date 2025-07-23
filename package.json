@@ -1,5 +1,5 @@
 {
-  "version": "0.0.6",
+  "version": "0.0.7",
   "author": "KangBit",
   "license": "MIT",
   "private": true,
@@ -10,6 +10,7 @@
     "url": "https://github.com/KangBit/vue-document-pip"
   },
   "keywords": [
+    "vue-pip",
     "pip",
     "document pip",
     "picture in picture",
