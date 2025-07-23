@@ -39,6 +39,15 @@ const pipRoot = computed(() => {
   return pipWindow.value?.document.getElementById("pip-root") || null;
 });
 
+const requestWindowParams = computed(() => {
+  return {
+    width: props.size?.width || 0,
+    height: props.size?.height || 0,
+    disallowReturnToOpener: props.disallowReturnToOpener,
+    preferInitialWindowPlacement: props.preferInitialWindowPlacement,
+  };
+});
+
 // Methods
 const togglePictureInPicture = (open: boolean) => {
   if (!isPIPSupported) {
@@ -53,13 +62,9 @@ const togglePictureInPicture = (open: boolean) => {
 };
 
 const openPIPWindow = async () => {
-  const { width = 0, height = 0 } = props.size || {};
-  const pip = await window.documentPictureInPicture.requestWindow({
-    width,
-    height,
-    disallowReturnToOpener: props.disallowReturnToOpener,
-    preferInitialWindowPlacement: props.preferInitialWindowPlacement,
-  });
+  const pip = await window.documentPictureInPicture.requestWindow(
+    requestWindowParams.value
+  );
 
   if (props.copyAllStyles) {
     copyStyles(pip);
