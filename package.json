@@ -1,8 +1,7 @@
 {
-  "version": "0.0.7",
+  "version": "0.0.9",
   "author": "KangBit",
   "license": "MIT",
-  "private": true,
   "name": "vue-pip",
   "description": "This is a simple utility package for document picture in picture",
   "repository": {
@@ -11,12 +10,14 @@
   },
   "keywords": [
     "vue-pip",
+    "Vue-pip",
     "pip",
     "document pip",
     "picture in picture",
-    "document picture in picture",
     "vue",
+    "Vue",
     "vue3",
+    "Vue3",
     "vue document pip"
   ],
   "type": "module",
