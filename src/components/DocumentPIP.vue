@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, onBeforeUnmount, computed } from "vue";
-import copyStyles from "../utils/copyStyles";
-import { loadCDNScripts } from "../utils/loadCDNScripts";
+import loadCDNScripts from "@/utils/loadCDNScripts";
+import copyStyles from "@/utils/copyStyles";
 
 // Types
 type PIPWindowSize = { width: number; height: number };
