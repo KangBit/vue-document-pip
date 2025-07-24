@@ -4,6 +4,12 @@ A Vue 3 component library for creating Picture-in-Picture windows using the Docu
 
 ![Vue PIP Demo](./demo.gif)
 
+## Browser Support
+
+- This feature may not work in some browsers. Browser compatibility can be checked at [CanIUse](https://caniuse.com/mdn-api_documentpictureinpicture).
+
+- This feature is only available in [Secure Contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts) (HTTPS or localhost).
+
 ## Installation
 
 ```bash

@@ -4,6 +4,11 @@ Document Picture-in-Picture API를 사용하여 Picture-in-Picture 창을 생성
 
 ![Vue PIP Demo](./demo.gif)
 
+## 브라우저 지원
+
+- 일부 브라우저에서 동작하지 않을 수 있습니다. 브라우저 호환성은 [CanIUse](https://caniuse.com/mdn-api_documentpictureinpicture)에서 확인할 수 있습니다.
+- [Secure_Contexts](https://developer.mozilla.org/en-US/docs/Web/Security/Secure_Contexts)에서만 사용할 수 있습니다 (HTTPS 또는 localhost).
+
 ## 설치
 
 ```bash
