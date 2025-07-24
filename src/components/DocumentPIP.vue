@@ -3,8 +3,9 @@ import { ref, watch, onBeforeUnmount, computed } from "vue";
 import loadCDNScripts from "@/utils/loadCDNScripts";
 import copyStyles from "@/utils/copyStyles";
 
+import type { PIPWindowSize } from "@/types/pip";
+
 // Types
-type PIPWindowSize = { width: number; height: number };
 type Mode = "clone" | "transfer";
 type Props = {
   size?: Partial<PIPWindowSize>;
