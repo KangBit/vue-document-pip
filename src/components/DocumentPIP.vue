@@ -52,6 +52,9 @@ const requestWindowParams = computed(() => {
 // Methods
 const togglePictureInPicture = (open: boolean) => {
   if (!isPIPSupported) {
+    console.warn(
+      "Document Picture-in-Picture API is not supported in this browser"
+    );
     return;
   }
 
