@@ -1,5 +1,5 @@
 {
-  "version": "0.0.10",
+  "version": "0.0.11",
   "author": "KangBit",
   "license": "MIT",
   "name": "vue-pip",
@@ -20,6 +20,7 @@
     "Vue3",
     "vue document pip"
   ],
+  "homepage": "https://kangbit.github.io/posts/document-pip/vue.html",
   "type": "module",
   "scripts": {
     "dev": "vite",
