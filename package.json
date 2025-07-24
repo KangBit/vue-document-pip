@@ -8,6 +8,9 @@
     "type": "git",
     "url": "git+https://github.com/KangBit/vue-document-pip.git"
   },
+  "bugs": {
+    "url": "https://github.com/KangBit/vue-document-pip/issues"
+  },
   "keywords": [
     "vue-pip",
     "Vue-pip",
