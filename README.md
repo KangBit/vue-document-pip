@@ -32,7 +32,7 @@ npm install vue-pip
 </template>
 
 <script setup lang="ts">
-import { DocumentPIP } from "vue-pip";
+import DocumentPIP from "vue-pip";
 
 const isPipOpen = ref(false);
 
@@ -63,7 +63,7 @@ const handleClose = () => {
 </template>
 
 <script setup lang="ts">
-import { DocumentPIP } from "vue-pip";
+import DocumentPIP from "vue-pip";
 
 const isPipOpen = ref(false);
 
