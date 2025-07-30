@@ -3,22 +3,10 @@ import { ref, watch, onBeforeUnmount, computed } from "vue";
 import loadCDNScripts from "@/utils/loadCDNScripts";
 import copyStyles from "@/utils/copyStyles";
 
-import type { PIPWindowSize } from "@/types/pip";
-
-// Types
-type Mode = "clone" | "transfer";
-type Props = {
-  size?: Partial<PIPWindowSize>;
-  mode?: Mode;
-  copyAllStyles?: boolean;
-  isPipOpen: boolean;
-  cdnScripts?: string[];
-  disallowReturnToOpener?: boolean; // '탭으로 돌아가기' 버튼 숨기기
-  preferInitialWindowPlacement?: boolean; // 항상 초기 위치에 설정 크기로 열림 (Chrome 130+)
-};
-type Emits = {
-  (e: "onClose"): void;
-};
+import type {
+  DocumentPIPProps as Props,
+  DocumentPIPEmits as Emits,
+} from "@/types/pip";
 
 // Variables
 const isPIPSupported = "documentPictureInPicture" in window;
