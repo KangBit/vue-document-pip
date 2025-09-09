@@ -148,6 +148,11 @@ onBeforeUnmount(() => {
   pipWindow.value?.removeEventListener("pagehide", onClosePIPWindow);
   pipWindow.value?.removeEventListener("keydown", handleKeyDown);
 });
+
+// Expose
+defineExpose({
+  pipWindow,
+});
 </script>
 
 <template>
