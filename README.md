@@ -98,6 +98,7 @@ const handleClose = () => {
 | Event     | Description                           |
 | --------- | ------------------------------------- |
 | `onClose` | Emitted when the PIP window is closed |
+| `onEnter` | Emitted when the PIP window is opened |
 
 ### Types
 
@@ -107,7 +108,7 @@ interface PIPWindowSize {
   height: number;
 }
 
-type Mode = "clone" | "transfer";
+type Mode = "clone" | "transfer" | "transfer-only";
 ```
 
 ## Browser Support

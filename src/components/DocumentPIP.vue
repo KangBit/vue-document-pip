@@ -63,6 +63,12 @@ const togglePictureInPicture = (open: boolean) => {
 };
 
 const openPIPWindow = async () => {
+  window.documentPictureInPicture.addEventListener(
+    "enter",
+    onEnterPIPWindow as EventListener,
+    { once: true }
+  );
+
   const pip = await window.documentPictureInPicture.requestWindow(
     requestWindowParams.value
   );
@@ -90,6 +96,10 @@ const closePIPWindow = () => {
 
   pipWindow.value.close();
   pipWindow.value = null;
+};
+
+const onEnterPIPWindow = (event: DocumentPictureInPictureEvent) => {
+  emit("onEnter", event);
 };
 
 const onClosePIPWindow = () => {

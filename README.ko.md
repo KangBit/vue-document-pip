@@ -99,6 +99,7 @@ const handleClose = () => {
 | Event     | 설명                  |
 | --------- | --------------------- |
 | `onClose` | PIP 창이 닫힐 때 발생 |
+| `onEnter` | PIP 창이 열릴 때 발생 |
 
 ### Types
 
@@ -108,7 +109,7 @@ interface PIPWindowSize {
   height: number;
 }
 
-type Mode = "clone" | "transfer";
+type Mode = "clone" | "transfer" | "transfer-only";
 ```
 
 ## 브라우저 지원

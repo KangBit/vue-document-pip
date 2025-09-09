@@ -10,6 +10,8 @@ export type DocumentPIPProps = {
   disallowReturnToOpener?: boolean; // '탭으로 돌아가기' 버튼 숨기기
   preferInitialWindowPlacement?: boolean; // 항상 초기 위치에 설정 크기로 열림 (Chrome 130+)
 };
+
 export type DocumentPIPEmits = {
   (e: "onClose"): void;
+  (e: "onEnter", param: DocumentPictureInPictureEvent): void;
 };
