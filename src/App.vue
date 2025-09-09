@@ -8,12 +8,21 @@ const isPipOpen = ref(false);
 const togglePIP = () => {
   isPipOpen.value = !isPipOpen.value;
 };
+
+const handleClose = () => {
+  isPipOpen.value = false;
+};
 </script>
 
 <template>
   <div style="width: 500px; height: 200px">
-    <DocumentPIP :isPipOpen="isPipOpen" :size="{ width: 500, height: 200 }">
-      <PIPContent></PIPContent>
+    <DocumentPIP
+      :isPipOpen="isPipOpen"
+      :size="{ width: 500, height: 200 }"
+      mode="transfer"
+      @onClose="handleClose"
+    >
+      <PIPContent />
     </DocumentPIP>
   </div>
   <button @click="togglePIP">Toggle PIP</button>

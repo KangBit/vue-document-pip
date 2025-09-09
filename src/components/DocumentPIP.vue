@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref, watch, onBeforeUnmount, computed } from "vue";
+
 import loadCDNScripts from "@/utils/loadCDNScripts";
 import copyStyles from "@/utils/copyStyles";
+import { getOS } from "@/utils/common";
 
 import type {
   DocumentPIPProps as Props,
@@ -84,28 +86,35 @@ const openPIPWindow = async () => {
   root.id = "pip-root";
   pip.document.body.appendChild(root);
 
-  pip.addEventListener("pagehide", onClosePIPWindow, { once: true });
-
   pipWindow.value = pip;
 };
 
 const closePIPWindow = () => {
-  if (!pipWindow.value) {
-    return;
-  }
-
-  pipWindow.value.close();
+  pipWindow.value?.close();
   pipWindow.value = null;
+};
+
+const onClosePIPWindow = () => {
+  closePIPWindow();
+  emit("onClose");
+  emit("update:isPipOpen", false);
 };
 
 const onEnterPIPWindow = (event: DocumentPictureInPictureEvent) => {
   emit("onEnter", event);
 };
 
-const onClosePIPWindow = () => {
-  closePIPWindow();
-  if (props.isPipOpen) {
-    emit("onClose");
+const handleKeyDown = (e: KeyboardEvent) => {
+  const { key, metaKey, ctrlKey } = e;
+
+  const isMac = getOS() === "macOS";
+  const lowerCaseKey = key.toLowerCase();
+
+  if (
+    (isMac && metaKey && lowerCaseKey === "w") ||
+    (!isMac && ctrlKey && lowerCaseKey === "w")
+  ) {
+    onClosePIPWindow();
   }
 };
 
@@ -117,9 +126,27 @@ watch(
   }
 );
 
+watch(
+  () => pipWindow.value,
+  (newVal: Window | null, oldVal: Window | null) => {
+    if (newVal) {
+      newVal.addEventListener("pagehide", onClosePIPWindow);
+      newVal.addEventListener("keydown", handleKeyDown);
+    }
+
+    if (oldVal && !newVal) {
+      oldVal.removeEventListener("pagehide", onClosePIPWindow);
+      oldVal.removeEventListener("keydown", handleKeyDown);
+    }
+  }
+);
+
 // LifeCycle
 onBeforeUnmount(() => {
   closePIPWindow();
+
+  pipWindow.value?.removeEventListener("pagehide", onClosePIPWindow);
+  pipWindow.value?.removeEventListener("keydown", handleKeyDown);
 });
 </script>
 

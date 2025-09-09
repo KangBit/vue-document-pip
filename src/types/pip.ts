@@ -13,5 +13,6 @@ export type DocumentPIPProps = {
 
 export type DocumentPIPEmits = {
   (e: "onClose"): void;
+  (e: "update:isPipOpen", param: boolean): void;
   (e: "onEnter", param: DocumentPictureInPictureEvent): void;
 };
