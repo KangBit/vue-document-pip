@@ -38,6 +38,14 @@ const requestWindowParams = computed(() => {
   };
 });
 
+const isShowOriginContent = computed(() => {
+  if (Boolean(pipRoot.value)) {
+    return props.mode === "clone";
+  } else {
+    return props.mode !== "transfer-only";
+  }
+});
+
 // Methods
 const togglePictureInPicture = (open: boolean) => {
   if (!isPIPSupported) {
@@ -106,7 +114,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <slot v-if="!pipRoot || mode === 'clone'"></slot>
+  <slot v-if="isShowOriginContent"></slot>
 
   <Teleport v-if="pipRoot" :to="pipRoot">
     <slot></slot>
