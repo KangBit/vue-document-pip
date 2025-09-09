@@ -9,7 +9,8 @@ import type {
 } from "@/types/pip";
 
 // Variables
-const isPIPSupported = "documentPictureInPicture" in window;
+const isPIPSupported =
+  typeof window !== "undefined" && "documentPictureInPicture" in window;
 
 // Props & Emits
 const props = withDefaults(defineProps<Props>(), {
