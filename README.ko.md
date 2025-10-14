@@ -24,8 +24,6 @@ npm install vue-pip
   <DocumentPip
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
-    mode="transfer"
-    :copyAllStyles="true"
     @onClose="handleClose"
   >
     <MyComponent />
@@ -52,9 +50,10 @@ const handleClose = () => {
 ```vue
 <template>
   <DocumentPip
+    ref="documentPIPRef"
+    mode="copy"
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
-    mode="transfer"
     :copyAllStyles="false"
     :cdnScripts="cdnScripts"
     @onClose="handleClose"
@@ -64,7 +63,10 @@ const handleClose = () => {
 </template>
 
 <script setup lang="ts">
+import { ref, useTemplateRef } from "vue";
 import DocumentPip from "vue-pip";
+
+const documentPIPRef = useTemplateRef("documentPIPRef");
 
 const isPipOpen = ref(false);
 
@@ -81,6 +83,12 @@ const handleClose = () => {
 ```
 
 ## API 참조
+
+### Template Ref
+
+| Type             | Description |
+| ---------------- | ----------- |
+| `Window \| null` | PIP window  |
 
 ### DocumentPIP Props
 
@@ -119,6 +127,10 @@ type Mode = "clone" | "transfer" | "transfer-only";
 - Chrome 116+
 - Edge 116+
 - Opera 102+
+
+## 관련 패키지
+
+- [react-document-pip](https://www.npmjs.com/package/react-document-pip) - React 버전의 Document Picture-in-Picture
 
 ## 라이선스
 
