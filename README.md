@@ -133,6 +133,10 @@ This library uses the [Document Picture-in-Picture API](https://developer.chrome
 
 - [react-document-pip](https://www.npmjs.com/package/react-document-pip) - React version of Document Picture-in-Picture
 
+## Projects using Document Pip
+
+- [pip-tools](https://pip-tools.com/) - Use handy tools that always stay on top of other windows!
+
 ## License
 
 MIT

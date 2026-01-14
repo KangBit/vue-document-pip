@@ -132,6 +132,10 @@ type Mode = "clone" | "transfer" | "transfer-only";
 
 - [react-document-pip](https://www.npmjs.com/package/react-document-pip) - React 버전의 Document Picture-in-Picture
 
+## Document Pip를 사용중인 프로젝트
+
+- [pip-tools](https://pip-tools.com/) - Use handy tools that always stay on top of other windows!
+
 ## 라이선스
 
 MIT
