@@ -65,28 +65,33 @@ const togglePictureInPicture = (open: boolean) => {
 };
 
 const openPIPWindow = async () => {
-  window.documentPictureInPicture.addEventListener(
-    "enter",
-    onEnterPIPWindow as EventListener,
-    { once: true }
-  );
+  try {
+    window.documentPictureInPicture.addEventListener(
+      "enter",
+      onEnterPIPWindow as EventListener,
+      { once: true }
+    );
 
-  const pip = await window.documentPictureInPicture.requestWindow(
-    requestWindowParams.value
-  );
+    const pip = await window.documentPictureInPicture.requestWindow(
+      requestWindowParams.value
+    );
 
-  if (props.copyAllStyles) {
-    copyStyles(pip);
+    if (props.copyAllStyles) {
+      copyStyles(pip);
+    }
+    if (props.cdnScripts && props.cdnScripts.length > 0) {
+      await loadCDNScripts(pip, props.cdnScripts);
+    }
+
+    const root = pip.document.createElement("div");
+    root.id = "pip-root";
+    pip.document.body.appendChild(root);
+
+    pipWindow.value = pip;
+  } catch (error) {
+    console.warn("Failed to open Document Picture-in-Picture window", error);
+    emit("update:isPipOpen", false);
   }
-  if (props.cdnScripts && props.cdnScripts.length > 0) {
-    await loadCDNScripts(pip, props.cdnScripts);
-  }
-
-  const root = pip.document.createElement("div");
-  root.id = "pip-root";
-  pip.document.body.appendChild(root);
-
-  pipWindow.value = pip;
 };
 
 const closePIPWindow = () => {
