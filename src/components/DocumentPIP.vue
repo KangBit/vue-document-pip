@@ -123,6 +123,9 @@ watch(
   () => props.isPipOpen,
   (newVal: boolean) => {
     togglePictureInPicture(newVal);
+  },
+  {
+    immediate: true,
   }
 );
 
