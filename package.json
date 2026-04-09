@@ -27,11 +27,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "prepare": "mv README.ko.md READMEko.bak",
-    "postpublish": "mv READMEko.bak README.ko.md",
     "build": "vue-tsc -b && vite build",
-    "build:clean": "rm -rf dist && npm run build",
-    "prepublishOnly": "npm run build:clean"
+    "prepublishOnly": "npm run build"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
