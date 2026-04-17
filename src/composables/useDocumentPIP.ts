@@ -3,12 +3,13 @@ import type { Component } from "vue";
 
 import type { PIPWindowSize } from "@/types/pip";
 
-const isPIPSupported = "documentPictureInPicture" in window;
-
 export const useDocumentPIP = (size: PIPWindowSize, component: Component) => {
   const pipWindow = ref<Window | null>(null);
 
   const openPIPWindow = async () => {
+    const isPIPSupported =
+      typeof window !== "undefined" && "documentPictureInPicture" in window;
+
     if (!isPIPSupported) {
       console.warn(
         "Document Picture-in-Picture API is not supported in this browser"
