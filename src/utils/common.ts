@@ -19,7 +19,7 @@ const getOSFromUserAgentData = () => {
 };
 
 const getOSFromUserAgent = () => {
-  const userAgent = navigator.userAgent;
+  const userAgent = navigator.userAgent.toLowerCase();
   if (userAgent.includes("mac")) {
     return "macOS";
   } else if (userAgent.includes("win")) {
