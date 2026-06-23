@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { ref, useTemplateRef } from "vue";
+import { ref } from "vue";
 import DocumentPIP from "./components/DocumentPIP.vue";
 import PIPContent from "./components/PIPContent.vue";
-
-const documentPIPRef = useTemplateRef("documentPIPRef");
 
 const isPipOpen = ref(false);
 
@@ -19,7 +17,6 @@ const handleClose = () => {
 <template>
   <div style="width: 500px; height: 200px">
     <DocumentPIP
-      ref="documentPIPRef"
       :isPipOpen="isPipOpen"
       :size="{ width: 500, height: 200 }"
       mode="transfer"

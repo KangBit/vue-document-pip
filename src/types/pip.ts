@@ -1,6 +1,12 @@
 export type PIPMode = "clone" | "transfer" | "transfer-only";
 export type PIPWindowSize = { width: number; height: number };
 
+// Document Picture-in-Picture "enter" event. Not part of TypeScript's bundled
+// lib.dom typings yet, so it is declared here as part of the public API.
+export interface DocumentPictureInPictureEvent extends Event {
+  window: Window;
+}
+
 export type DocumentPIPProps = {
   size?: Partial<PIPWindowSize>;
   mode?: PIPMode;

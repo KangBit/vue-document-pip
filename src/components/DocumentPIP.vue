@@ -8,6 +8,7 @@ import { getOS } from "@/utils/common";
 import type {
   DocumentPIPProps as Props,
   DocumentPIPEmits as Emits,
+  DocumentPictureInPictureEvent,
 } from "@/types/pip";
 
 // Variables

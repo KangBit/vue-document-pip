@@ -8,8 +8,16 @@ export default defineConfig({
   plugins: [
     vue(),
     dts({
-      rollupTypes: true,
       tsconfigPath: "./tsconfig.app.json",
+      // Library surface only — keep the dev playground out of the published types.
+      exclude: [
+        "src/main.ts",
+        "src/App.vue",
+        "src/components/PIPContent.vue",
+        "src/composables/**",
+        "src/vite-env.d.ts",
+        "node_modules/**",
+      ],
     }),
   ],
 
