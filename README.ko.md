@@ -31,7 +31,8 @@ npm install vue-pip
 </template>
 
 <script setup lang="ts">
-import DocumentPIP from "vue-pip";
+import { ref } from "vue";
+import DocumentPip from "vue-pip";
 
 const isPipOpen = ref(false);
 
@@ -51,7 +52,7 @@ const handleClose = () => {
 <template>
   <DocumentPip
     ref="documentPIPRef"
-    mode="copy"
+    mode="clone"
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
     :copyAllStyles="false"
@@ -81,6 +82,12 @@ const handleClose = () => {
 };
 </script>
 ```
+
+### Nuxt 3
+
+위 예제처럼 `<script setup>`에서 `vue-pip`의 `DocumentPip`를 명시적으로 import합니다. import 이름과 템플릿 태그를 동일하게 맞춰야 합니다.
+
+기본 예제는 SSR과 `<ClientOnly>` 안에서 모두 동작합니다. Nuxt 3.21.11과 Vue 3.5.44 환경의 Chrome에서 PiP 열기, 반응형 콘텐츠, 닫기, 재열기를 검증했습니다.
 
 ## API 참조
 

@@ -32,7 +32,8 @@ npm install vue-pip
 </template>
 
 <script setup lang="ts">
-import DocumentPIP from "vue-pip";
+import { ref } from "vue";
+import DocumentPip from "vue-pip";
 
 const isPipOpen = ref(false);
 
@@ -52,7 +53,7 @@ const handleClose = () => {
 <template>
   <DocumentPip
     ref="documentPIPRef"
-    mode="copy"
+    mode="clone"
     :isPipOpen="isPipOpen"
     :size="{ width: 500, height: 400 }"
     :copyAllStyles="false"
@@ -65,7 +66,7 @@ const handleClose = () => {
 
 <script setup lang="ts">
 import { ref, useTemplateRef } from "vue";
-import DocumentPIP from "vue-pip";
+import DocumentPip from "vue-pip";
 
 const documentPIPRef = useTemplateRef("documentPIPRef");
 
@@ -82,6 +83,12 @@ const handleClose = () => {
 };
 </script>
 ```
+
+### Nuxt 3
+
+Import `DocumentPip` explicitly from `vue-pip` in `<script setup>`, as shown above. Keep the import name and template tag identical.
+
+The basic example works with SSR and inside `<ClientOnly>`. Verified with Nuxt 3.21.11 and Vue 3.5.44 in Chrome, including PiP opening, reactive content, closing, and reopening.
 
 ## API Reference
 
