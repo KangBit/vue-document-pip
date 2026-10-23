@@ -34,15 +34,14 @@
     "vue": "^3.0.0"
   },
   "devDependencies": {
-    "@types/node": "^26.0.0",
-    "@vitejs/plugin-vue": "^6.0.7",
-    "@vue/language-core": "~3.1.8",
+    "@types/node": "^26.6.5",
+    "@vitejs/plugin-vue": "^6.0.10",
     "@vue/tsconfig": "^0.9.1",
     "typescript": "~6.0.3",
-    "vite": "^8.0.16",
-    "vite-plugin-dts": "^5.0.2",
-    "vue-tsc": "^3.3.5",
-    "vue": "^3.5.38"
+    "vite": "^8.3.5",
+    "vite-plugin-dts": "^5.1.2",
+    "vue-tsc": "^3.3.13",
+    "vue": "^3.5.44"
   },
   "main": "./dist/vue-pip.umd.cjs",
   "module": "./dist/vue-pip.js",
